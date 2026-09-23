@@ -1,0 +1,12 @@
+{
+  "name": "controle-producao-api",
+  "version": "1.0.0",
+  "description": "API REST de controle de produção, estoque e relatórios",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
