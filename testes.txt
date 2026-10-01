@@ -1,0 +1,76 @@
+// POST /ordens - inicial
+{
+    "codigoOrdem": "OP001",
+    "codigoProduto": "PEC-100",
+    "tipoProduto": 1,
+    "quantidadeProduzida": 300,
+    "custoUnitarioBase": 50,
+    "estoqueInicial": 100
+}
+
+// POST /ordens - para testar se pode repetir codigoOrdem (espera erro 400)
+{
+    "codigoOrdem": "OP001",
+    "codigoProduto": "PEC-200",
+    "tipoProduto": 2,
+    "quantidadeProduzida": 50,
+    "custoUnitarioBase": 25,
+    "estoqueInicial": 10
+}
+
+// POST /ordens - para testar tipoProduto inválido (espera erro 400)
+{
+    "codigoOrdem": "OP999",
+    "codigoProduto": "PEC-300",
+    "tipoProduto": 5,
+    "quantidadeProduzida": 10,
+    "custoUnitarioBase": 20,
+    "estoqueInicial": 10
+}
+
+// POST /ordens - segunda ordem (tipo Premium, estoque ALTO)
+{
+    "codigoOrdem": "OP002",
+    "codigoProduto": "PEC-200",
+    "tipoProduto": 2,
+    "quantidadeProduzida": 300,
+    "custoUnitarioBase": 50,
+    "estoqueInicial": 4800
+}
+
+// POST /ordens - terceira ordem (tipo Sob encomenda, estoque CRITICO)
+{
+    "codigoOrdem": "OP003",
+    "codigoProduto": "PEC-300",
+    "tipoProduto": 3,
+    "quantidadeProduzida": 50,
+    "custoUnitarioBase": 40,
+    "estoqueInicial": 100
+}
+
+// GET /ordens - para ver as ordens registradas
+params: tipo: 2
+params: alerta: NORMAL
+
+// GET /ordens/OP001 - para ver uma ordem específica
+
+// GET /ordens/NAO_EXISTE - para testar ordem inexistente (espera erro 404)
+
+// GET /relatorios/ordens - para ver o relatório gerado das ordens
+
+// PUT /ordens/OP001 - para atualizar uma ordem já registrada
+{
+    "tipoProduto": 3,
+    "quantidadeProduzida": 100,
+    "custoUnitarioBase": 50,
+    "estoqueInicial": 4950
+}
+
+// PUT /ordens/NAO_EXISTE - para testar atualização de ordem inexistente (espera erro 404)
+{
+    "quantidadeProduzida": 10
+}
+
+// DELETE /ordens/OP003 - para deletar uma ordem existente
+
+// DELETE /ordens/NAO_EXISTE - para testar remoção de ordem inexistente (espera erro 404)
